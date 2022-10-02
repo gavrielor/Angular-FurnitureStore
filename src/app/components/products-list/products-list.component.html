@@ -1,0 +1,9 @@
+<div>
+    <button (click)="orderByPrice()">Order by Price</button>
+    <button (click)="orderByDate()">Order by Publication Date</button>
+</div>
+
+<h1>All Products:</h1>
+<div *ngFor="let product of products">
+    <product-preview (onDelete)="deleteProduct($event)" [product]="product"></product-preview>
+</div>

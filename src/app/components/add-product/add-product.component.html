@@ -1,0 +1,86 @@
+<h1>Add New Product:</h1>
+<form [formGroup]="productForm" (ngSubmit)="onSumbit()">
+
+    Name: <input type="text" formControlName="name"><br>
+    <span class="errors"
+        *ngIf="productForm.get('name')!.errors && (productForm.get('name')!.touched || productForm.get('name')!.dirty)">
+        <span *ngIf="productForm.get('name')!.errors!['required']">
+            Name is required
+        </span>
+        <span *ngIf="productForm.get('name')!.errors!['minlength']">
+            Name Must be greater than 2 characters
+        </span>
+        <span *ngIf="productForm.get('name')!.errors!['maxlength']">
+            Name Max length is 20 characters
+        </span>
+        <br>
+    </span>
+
+    Price: <input type="number" formControlName="price"><br>
+    <span class="errors"
+        *ngIf="productForm.get('price')!.errors && (productForm.get('price')!.touched || productForm.get('price')!.dirty)">
+        <span *ngIf="productForm.get('price')!.errors!['required']">
+            Price is required
+        </span>
+        <span *ngIf="productForm.get('price')!.errors!['min']">
+            Price Must be greater than 0
+        </span>
+        <br>
+    </span>
+
+    Description: <input type="text" formControlName="description"><br>
+    <span class="errors"
+        *ngIf="productForm.get('description')!.errors && (productForm.get('description')!.touched || productForm.get('description')!.dirty)">
+        <span *ngIf="productForm.get('description')!.errors!['required']">
+            Description is required
+        </span>
+        <span *ngIf="productForm.get('description')!.errors!['minlength']">
+            Description Must be greater than 10 characters
+        </span>
+        <span *ngIf="productForm.get('description')!.errors!['maxlength']">
+            Description Max length is 100 characters
+        </span>
+        <br>
+    </span>
+
+    Image: <input type="text" formControlName="image"><br>
+    <span class="errors"
+        *ngIf="productForm.get('image')!.errors && (productForm.get('image')!.touched || productForm.get('image')!.dirty)">
+        <span *ngIf="productForm.get('image')!.errors!['required']">
+            Image is required<br>
+        </span>
+        <span *ngIf="productForm.get('image')!.errors!['imageValidator']">
+            Please enter a valid image URL
+        </span>
+        <br>
+    </span>
+
+    City: <input type="text" formControlName="sellersCity"><br>
+    <span class="errors"
+        *ngIf="productForm.get('sellersCity')!.errors && (productForm.get('sellersCity')!.touched || productForm.get('sellersCity')!.dirty)">
+        <span *ngIf="productForm.get('sellersCity')!.errors!['required']">
+            City is required
+        </span>
+        <span *ngIf="productForm.get('sellersCity')!.errors!['minlength']">
+            City Name Must be greater than 2 characters
+        </span>
+        <span *ngIf="productForm.get('sellersCity')!.errors!['maxlength']">
+            City Name Max length is 20 characters
+        </span>
+        <br>
+    </span>
+
+    Phone: <input type="text" formControlName="sellersPhone"><br>
+    <span class="errors"
+        *ngIf="productForm.get('sellersPhone')!.errors && (productForm.get('sellersPhone')!.touched || productForm.get('sellersPhone')!.dirty)">
+        <span *ngIf="productForm.get('sellersPhone')!.errors!['required']">
+            Phone is required
+        </span>
+        <span *ngIf="productForm.get('sellersPhone')!.errors!['pattern']">
+            Please enter a valid phone number (05X-XXX-XXXX)
+        </span>
+        <br>
+    </span>
+
+    <button type="submit">Add Product</button>
+</form>
